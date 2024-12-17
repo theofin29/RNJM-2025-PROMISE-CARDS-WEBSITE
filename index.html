@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Image Display</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        img {
+            max-width: 80%;
+            max-height: 80%;
+            border: 5px solid #555;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <img id="randomImage" alt="Random Image">
+    <script>
+        // Dynamically generate image file names from 1.png to 30.png
+        const images = [];
+        for (let i = 1; i <= 30; i++) {
+            images.push(`images/${i}.png`);
+        }
+
+        // Select a random image and display it
+        function displayRandomImage() {
+            const randomIndex = Math.floor(Math.random() * images.length);
+            document.getElementById("randomImage").src = images[randomIndex];
+        }
+
+        // Display a random image on page load
+        displayRandomImage();
+    </script>
+</body>
+</html>
